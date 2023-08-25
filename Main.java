@@ -19,6 +19,22 @@ public class Main(){
 
         return qtdOcorrencias;
     }
+    
+    public static boolean hasRepeat(ArrayList<Integer> l){
+
+        if(l.size() > 1) {
+            for (int i = 0; i < l.size(); i++) {
+                for (int j = 0; j < l.size(); j++) {
+                    if (l.contains(i) == l.contains(j)) {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
+
+    }
 
     public static ArrayList<Integer> listRepeat(ArrayList< Integer > l){
         ArrayList<Integer> listaAux = new ArrayList<Integer>();
@@ -54,6 +70,16 @@ public class Main(){
         });
 
         return count;
+    }
+
+    public static ArrayList<Integer> union(ArrayList<Integer> l1, ArrayList<Integer> l2){
+        ArrayList<Integer> listaUniao = new ArrayList<Integer>();
+
+        l2.forEach((i) -> {
+            l1.add(i)
+        })
+
+        return l1;
     }
 
     List<Integer> intersect(ArrayList<Integer> l1, ArrayList<Integer> l2){
