@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Main(){
     public static void main(String[] args) {
@@ -34,4 +37,29 @@ public class Main(){
         return listaRepetidos;
     }
 
+    int nroRepeat(ArrayList<Integer> l){
+        int repetedNumbers = 0;
+        int count = 0;
+
+        l.forEach(number ->{
+            count = 0;
+            for(int i=0; i<l.size(); i++){
+                if(l.get(i) == number){
+                    count++;
+                }
+            }
+            if (count>1){
+                repetedNumbers+=count-1;
+            }
+        });
+
+        return count;
+    }
+
+    List<Integer> intersect(ArrayList<Integer> l1, ArrayList<Integer> l2){
+        return l1.stream()
+        .distinct()
+        .filter(l2::contains)
+        .collect(Collectors.toList());
+    }
 }
